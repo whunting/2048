@@ -7,11 +7,20 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/tv"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_alignStart="@+id/square"
             android:layout_marginTop="40dp"
             android:text="score:"
+            android:textSize="30dp"/>
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_toEndOf="@+id/tv"
+            android:layout_marginTop="40dp"
             android:textSize="30dp"/>
 
         <RelativeLayout

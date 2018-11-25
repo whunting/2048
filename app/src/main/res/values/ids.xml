@@ -5,4 +5,5 @@
     <item name="Enm" type="id" />
     <item name="pw" type="id" />
     <item name="Epw" type="id" />
+    <item name="score" type="id" />
 </resources>
