@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.hunting.testavos.MainActivity">
-    
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -16,14 +16,14 @@
             android:layout_centerInParent="true"
             android:background="#EAD2B0">
 
-            <TextView 
+            <TextView
                 android:id="@+id/Uname"
-                android:layout_width="100dp" 
-                android:layout_height="30dp" 
+                android:layout_width="100dp"
+                android:layout_height="30dp"
                 android:text="Username"
                 android:textSize="20dp"
                 android:layout_alignStart="@+id/Enm"
-                android:layout_marginTop="20dp" 
+                android:layout_marginTop="20dp"
                 android:textStyle="bold" />
 
 
@@ -77,7 +77,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
                 android:background="#A47939"/>
-            
+
         </RelativeLayout>
     </RelativeLayout>
 

@@ -12,9 +12,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon_main"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/icon_main"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".MyLeanCloudApp">
@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".registerAcitivity" />
-        <activity android:name=".successActivity"/>
+        <activity android:name="successActivity"/>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.example.hunting.testavos;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.widget.FrameLayout;
@@ -9,7 +10,8 @@ import android.widget.TextView;
 public class Card extends FrameLayout {
     private TextView t;
     private int num = 0;
-    private int backgroundColor = 0xE8E0D4;
+    int backgroundColor = 0x8E8372;
+
 
     public Card(Context context) {
         super(context);
@@ -22,64 +24,63 @@ public class Card extends FrameLayout {
         addView(t,lp);
         setNum(0);
     }
+
     public int getNum() {
         return num;
     }
+
     public void setNum(int num) {
         this.num = num;
-        t.setBackgroundColor(getBackground(num));
-        if (this.num<= 0)
-        {
-            t.setText("");
-
-        }else {
-            t.setText(num + "");
-        }
-    }
-    private int getBackground(int num) {
-        int bottomColor = backgroundColor;
         switch (num) {
+            case 0:
+                t.setBackgroundColor(Color.parseColor("#E8E0D4"));
+                break;
             case 2:
-                bottomColor = 0xE8E0D4;
+                t.setBackgroundColor(Color.parseColor("#E8E0D4"));
                 break;
             case 4:
-                bottomColor = 0xEAD2B0;
+                t.setBackgroundColor(Color.parseColor("#EAD2B0"));
                 break;
             case 8:
-                bottomColor = 0xEEB96E;
+                t.setBackgroundColor(Color.parseColor("#EEB96E"));
                 break;
             case 16:
-                bottomColor = 0xFFA65F;
+                t.setBackgroundColor(Color.parseColor("#FFA65F"));
                 break;
 
             case 32:
-                bottomColor = 0xFF8740;
+                t.setBackgroundColor(Color.parseColor("#FF8740"));
                 break;
             case 64:
-                bottomColor = 0xF97811;
+                t.setBackgroundColor(Color.parseColor("#F97811"));
                 break;
             case 128:
-                bottomColor = 0xFFC62F;
+                t.setBackgroundColor(Color.parseColor("#FFC62F"));
                 break;
             case 256:
-                bottomColor = 0xFFDB4E;
+                t.setBackgroundColor(Color.parseColor("#FFDB4E"));
                 break;
             case 512:
-                bottomColor = 0xDD6B48;
+                t.setBackgroundColor(Color.parseColor("#DD6B48"));
                 break;
             case 1024:
-                bottomColor = 0xCC564A;
+                t.setBackgroundColor(Color.parseColor("#CC564A"));
                 break;
             case 2048:
-                bottomColor = 0xE8E0D4;
+                t.setBackgroundColor(Color.parseColor("#E8E0D4"));
                 break;
             default:
-                bottomColor = 0xB90B0B;
+                t.setBackgroundColor(Color.parseColor("#B90B0B"));
                 break;
-
         }
-        return bottomColor;
+        if (this.num <= 0) {
+            t.setText("");
+
+        } else {
+            t.setText(num + "");
+        }
     }
+
     /**
      *判断是否为相同数字的卡片
      * @return
