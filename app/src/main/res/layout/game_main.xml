@@ -9,7 +9,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/tv"
@@ -17,7 +18,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
             android:text="@string/score"
-            android:textSize="30sp" />
+            android:textSize="30sp"/>
 
         <TextView
             android:id="@+id/tv_score"
@@ -26,12 +27,41 @@
             android:layout_marginTop="40dp"
             android:layout_toEndOf="@+id/tv"
             android:textSize="30sp" />
+
     </RelativeLayout>
 
     <com.example.hunting.testavos.Game
         android:id="@+id/gameview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4" />
+        android:layout_weight="4"
+        />
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/restart"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:background="#EAD2B0"
+            android:text="Restart"
+            android:textColor="#FFFFFF"/>
+
+        <Button
+            android:id="@+id/userView"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_toEndOf="@+id/restart"
+            android:background="#7D5D2C"
+            android:layout_marginLeft="10dp"
+            android:text="Personal"
+            android:textColor="#FFFFFF"/>
+
+    </RelativeLayout>
+
 
 </LinearLayout>

@@ -53,9 +53,18 @@
                 android:layout_width="200dp"
                 android:layout_height="40dp"
                 android:layout_below="@+id/Upass"
+                android:inputType="textPassword"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/round"
                 android:layout_centerInParent="true"/>
+
+            <CheckBox
+                android:checked="false"
+                android:id="@+id/cbDisplayPassword"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignTop="@+id/Epw"
+                android:layout_alignParentEnd="true"/>
 
             <Button
                 android:id="@+id/login"

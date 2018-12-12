@@ -1,18 +1,14 @@
 package com.example.hunting.testavos;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Point;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.GridLayout;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -319,6 +315,7 @@ public class Game extends GridLayout{
 
         }
         if (check) {
+            successActivity.getSuccessActivity().createScore();
             new AlertDialog.Builder(getContext()).setTitle("提示").setMessage("游戏结束了").
                     setPositiveButton("重来哈", new DialogInterface.OnClickListener() {
                 @Override
@@ -329,5 +326,6 @@ public class Game extends GridLayout{
         }
 
     }
+
 
 }
