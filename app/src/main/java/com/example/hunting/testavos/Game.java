@@ -149,33 +149,29 @@ public class Game extends GridLayout{
         boolean test = false;
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 4; x++) {
-                for (int x1 = x+1; x1 < 4; x1++) {
-                    try {
-                        if (cards[x1][y].getNum() > 0) {
-                            if (cards[x][y].getNum() <= 0) {
-                                cards[x][y].setNum(cards[x1][y].getNum());
-                                cards[x1][y].setNum(0);
-                                x--;
-                                test = true;
-                            } else if (cards[x][y].equal(cards[x1][y])) {
-                                cards[x][y].setNum(cards[x][y].getNum() * 2);
-                                cards[x1][y].setNum(0);
-                                successActivity.getSuccessActivity().addScore(cards[x][y].getNum());
-                                test = true;
+                for (int x1 = x + 1; x1 < 4; x1++) {
+                    if (cards[x1][y].getNum() > 0) {
+                        if (cards[x][y].getNum() <= 0) {
+                            cards[x][y].setNum(cards[x1][y].getNum());
+                            cards[x1][y].setNum(0);
+                            x--;
+                            test = true;
+                        } else if (cards[x][y].equal(cards[x1][y])) {
+                            cards[x][y].setNum(cards[x][y].getNum() * 2);
+                            cards[x1][y].setNum(0);
+                            successActivity.getSuccessActivity().addScore(cards[x][y].getNum());
+                            test = true;
 
-                            }
                         }
-                    }catch (NullPointerException e) {
-                        e.printStackTrace();
-                    }
                         break;
                     }
                 }
 
             }
-        if (test) {
-            addRandomNum();
-            checkComplete();
+            if (test) {
+                addRandomNum();
+                checkComplete();
+            }
         }
     }
 
@@ -315,9 +311,8 @@ public class Game extends GridLayout{
 
         }
         if (check) {
-            successActivity.getSuccessActivity().createScore();
-            new AlertDialog.Builder(getContext()).setTitle("提示").setMessage("游戏结束了").
-                    setPositiveButton("重来哈", new DialogInterface.OnClickListener() {
+            new AlertDialog.Builder(getContext()).setTitle("Attention").setMessage("Game Over").
+                    setPositiveButton("restart", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     startGame();

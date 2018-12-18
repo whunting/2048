@@ -37,16 +37,20 @@ public class successActivity extends Activity implements View.OnClickListener {
         rs = (Button)findViewById(R.id.restart);
         rs.setOnClickListener(this);
     }
+
+
     public void clearScore() {
+        if (score != 0) {
+            createScore();
+        }
         score = 0;
         showScore();
     }
 
-    @SuppressLint("SetTextI18n")
     public void showScore() {
         try {
             if (score == 0) {
-                tvscore.setText(String.valueOf(0));
+                tvscore.setText("0");
             }
             else {
                 tvscore.setText(score+"");
@@ -55,6 +59,7 @@ public class successActivity extends Activity implements View.OnClickListener {
             e.printStackTrace();
         }
     }
+
     public void addScore(int num) {
         score += num;
         showScore();
@@ -79,7 +84,6 @@ public class successActivity extends Activity implements View.OnClickListener {
             if ((System.currentTimeMillis() - exitTime) > 2000) {
                 Toast.makeText(this, "再按一次退出哈",1000).show();
                 exitTime = System.currentTimeMillis();
-                createScore();
             } else {
                 finish();
                 System.exit(0);
@@ -99,8 +103,8 @@ public class successActivity extends Activity implements View.OnClickListener {
                 startActivity(intent1);
                 break;
             case R.id.restart:
-                createScore();
                 finish();
+                createScore();
                 Intent intent2 = new Intent(this, successActivity.class);
                 startActivity(intent2);
                 break;
@@ -118,15 +122,15 @@ public class successActivity extends Activity implements View.OnClickListener {
         sc.saveInBackground(new SaveCallback() {
             @Override
             public void done(AVException e) {
-                if (e == null) {
-                    successActivity.this.finish();
-
-                } else {
+                if (e != null){
                     Toast.makeText(successActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
 
         });
-
+        if (score > AVUser.getCurrentUser().getInt("bestScore")) {
+            AVUser.getCurrentUser().put("bestScore",score);
+            AVUser.getCurrentUser().saveInBackground();
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.hunting.testavos;
 
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,24 +11,24 @@ import android.widget.ListView;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
-import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.FindCallback;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserActivity extends Activity implements View.OnClickListener {
-    private ListView lv;
-    private UserAdapter ua;
-    private List<AVObject> mList = new ArrayList<>();
-    Button rank;
+public class rankActivity extends Activity implements View.OnClickListener {
+    private ListView rlv;
+    private rankAdapter ra;
+    private List<AVObject> rList = new ArrayList<>();
+    Button history;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_main);
-        rank =findViewById(R.id.rrank);
-        rank.setOnClickListener(this);
+        setContentView(R.layout.user_rank);
+        history = findViewById(R.id.history);
+        history.setOnClickListener(this);
+
     }
 
 
@@ -43,22 +44,21 @@ public class UserActivity extends Activity implements View.OnClickListener {
     }
 
     private void setListView() {
-        lv = findViewById(R.id.list_main);
-        ua = new UserAdapter(mList,UserActivity.this);
-        lv.setAdapter(ua);
+        rlv = findViewById(R.id.list_rank);
+        ra = new rankAdapter(rList,rankActivity.this);
+        rlv.setAdapter(ra);
     }
 
     private void initData() {
-        mList.clear();
-        final AVQuery<AVObject> avQuery = new AVQuery<>("score");
-        avQuery.orderByDescending("createdAt");
-        avQuery.include("owner");
-        avQuery.whereEqualTo("owner", AVUser.getCurrentUser());
+        rList.clear();
+        final AVQuery<AVObject> avQuery = new AVQuery<>("_User");
+        avQuery.orderByDescending("bestScore");
+        avQuery.include("username");
         avQuery.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
                 if (e == null ) {
-                    mList.addAll(list);
+                    rList.addAll(list);
                     setListView();
                 } else {
                     e.printStackTrace();
@@ -69,7 +69,7 @@ public class UserActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(this,rankActivity.class);
+        Intent intent = new Intent(this,UserActivity.class);
         startActivity(intent);
     }
 }

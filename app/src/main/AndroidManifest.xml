@@ -35,6 +35,7 @@
         <activity android:name=".registerAcitivity" />
         <activity android:name="successActivity"/>
         <activity android:name=".UserActivity" />
+        <activity android:name=".rankActivity" />
     </application>
 
 </manifest>

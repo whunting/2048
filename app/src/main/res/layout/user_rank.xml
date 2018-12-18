@@ -8,25 +8,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="history"
+            android:textSize="20sp"
+            android:layout_toEndOf="@+id/head1"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/head1"
-            android:text="Historical Results"
+            android:text="Ranking List"
             android:layout_centerHorizontal="true"
             android:textStyle="bold"
             android:textSize="25sp"/>
 
-        <Button
-            android:id="@+id/rrank"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="rank"
-            android:textSize="20sp"
-            android:layout_toEndOf="@+id/head1"/>
-
         <ListView
-            android:id="@+id/list_main"
+            android:id="@+id/list_rank"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/head1"
